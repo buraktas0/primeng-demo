@@ -1,0 +1,19 @@
+<p-menu [model]="items" class="justify-center menu">
+    <ng-template #start>
+        <span></span>
+    </ng-template>
+    <ng-template #submenuheader let-item>
+        <span class="text-primary font-bold">{{ item.label }}</span>
+    </ng-template>
+    <ng-template #item let-item>
+        <a class="flex items-center p-menu-item-link">
+            <span [class]="item.icon"></span>
+            <span class="ml-2">{{ item.label }}</span>
+        </a>
+    </ng-template>
+    <ng-template #end>
+        <div class="flex justify-content-center">
+            <span>sidebar footer</span>
+        </div>
+    </ng-template>
+</p-menu>

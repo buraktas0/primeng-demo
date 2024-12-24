@@ -1,13 +1,17 @@
 <div>
-    TODO
     <app-panel-header></app-panel-header>
-    <app-panel-sidebar></app-panel-sidebar>
+
+    <div class="sidebar py-2">
+        <app-panel-sidebar></app-panel-sidebar>
+    </div>
+
+    <p-toast />
 
     <!-- main container -->
     <div>
         <div>
             <router-outlet></router-outlet>
         </div>
-        <app-front-footer></app-front-footer>
+        <app-panel-footer></app-panel-footer>
     </div>
 </div>
