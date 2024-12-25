@@ -1,15 +1,14 @@
 <div>
     <app-panel-header></app-panel-header>
 
-    <div class="sidebar py-2">
+    <div class="layout-sidebar">
         <app-panel-sidebar></app-panel-sidebar>
     </div>
 
     <p-toast />
 
-    <!-- main container -->
-    <div>
-        <div>
+    <div class="layout-main-container" [ngClass]="{ 'collapsed': sidebarCollapsed }">
+        <div class="layout-main">
             <router-outlet></router-outlet>
         </div>
         <app-panel-footer></app-panel-footer>

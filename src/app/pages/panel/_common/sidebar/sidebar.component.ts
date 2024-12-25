@@ -5,6 +5,7 @@ import { MenuModule } from 'primeng/menu';
 import { MenuItem, MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
 import { ToastModule } from 'primeng/toast';
+import { LayoutService } from "../../layout.service";
 
 @Component({
     selector: 'app-panel-sidebar',
@@ -15,8 +16,16 @@ import { ToastModule } from 'primeng/toast';
 })
 export class PanelSidebarComponent implements OnInit {
 
-    constructor(private router: Router, private messageService: MessageService) { }
+    constructor(
+        private router: Router,
+        private layoutService: LayoutService,
+        private messageService: MessageService) {
+        this.layoutService.sidebarCollapsed$.subscribe(state => {
+            this.isCollapsed = state;
+        });
+    }
 
+    isCollapsed: boolean = false;
     items: MenuItem[] | undefined;
 
     ngOnInit() {
@@ -42,6 +51,9 @@ export class PanelSidebarComponent implements OnInit {
                         }
                     }
                 ]
+            },
+            {
+                separator: true
             },
             {
                 label: 'Profile',
@@ -73,5 +85,10 @@ export class PanelSidebarComponent implements OnInit {
     delete() {
         this.messageService.add({ severity: 'warn', summary: 'Search Completed', detail: 'No results found', life: 3000 });
     }
+
+    toggleSidebar() {
+        this.layoutService.toggleSidebar();
+    }
+
 
 }

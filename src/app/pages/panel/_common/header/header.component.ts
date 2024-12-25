@@ -6,6 +6,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { MenuItem } from "primeng/api";
 import { Router, RouterModule } from "@angular/router";
 import { InputTextModule } from "primeng/inputtext";
+import { LayoutService } from "../../layout.service";
 
 @Component({
     selector: 'app-panel-header',
@@ -17,7 +18,12 @@ import { InputTextModule } from "primeng/inputtext";
 export class PanelHeaderComponent implements OnInit {
     items: MenuItem[] | undefined;
 
-    constructor(private router: Router) { }
+    constructor(
+        private router: Router,
+        private layoutService: LayoutService,
+    ) {
+
+    }
 
     ngOnInit() {
         this.items = [
@@ -47,5 +53,9 @@ export class PanelHeaderComponent implements OnInit {
                 ],
             },
         ];
+    }
+
+    toggleSidebar() {
+        this.layoutService.toggleSidebar();
     }
 }

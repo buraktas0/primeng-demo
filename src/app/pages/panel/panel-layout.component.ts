@@ -6,6 +6,7 @@ import { PanelSidebarComponent } from "./_common/sidebar/sidebar.component";
 import { PanelFooterComponent } from "./_common/footer/footer.component";
 import { MessageService } from "primeng/api";
 import { ToastModule } from "primeng/toast";
+import { LayoutService } from "./layout.service";
 
 @Component({
     selector: 'app-panel-layout',
@@ -16,5 +17,12 @@ import { ToastModule } from "primeng/toast";
     imports: [CommonModule, RouterModule, PanelHeaderComponent, PanelSidebarComponent, PanelFooterComponent, ToastModule]
 })
 export class PanelLayoutComponent {
+    constructor(private layoutService: LayoutService) {
+        this.layoutService.sidebarCollapsed$.subscribe(state => {
+            this.sidebarCollapsed = state;
+        });
+    }
+
+    sidebarCollapsed: boolean = false;
 
 }
