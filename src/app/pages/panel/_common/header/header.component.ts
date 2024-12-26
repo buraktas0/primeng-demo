@@ -33,38 +33,62 @@ export class PanelHeaderComponent implements OnInit {
                 command: () => { this.navigate('/panel'); }
             },
             {
-                label: 'Inputs',
-                icon: 'pi pi-file',
+                label: 'Components',
+                icon: 'pi pi-clone',
                 items: [
                     {
                         label: 'Form Layout',
-                        icon: 'pi pi-table',
+                        icon: 'pi pi-clone',
                         command: () => { this.navigate('/panel/form-layouts'); }
                     },
                     {
                         label: 'Input',
+                        icon: 'pi pi-check-square'
+                    },
+                    {
+                        label: 'Button',
+                        icon: 'pi pi-box'
+                    },
+                    {
+                        label: 'Table',
                         icon: 'pi pi-table'
-                    }
+                    },
+                    {
+                        label: 'Chart',
+                        icon: 'pi pi-chart-bar'
+                    },
+                    {
+                        label: 'Placeholder',
+                        icon: 'pi pi-circle'
+                    },
+                    {
+                        label: 'Panel',
+                        icon: 'pi pi-tablet'
+                    },
                 ]
             },
             {
-                label: 'Projects',
-                icon: 'pi pi-star',
+                label: 'Pages',
+                icon: 'pi pi-globe',
                 items: [
+
                     {
-                        label: 'Core',
-                        icon: 'pi pi-bolt'
+                        label: 'Auth',
+                        icon: 'pi pi-user',
+                        items: [
+
+                        ]
                     },
                     {
-                        label: 'Blocks',
-                        icon: 'pi pi-server'
+                        label: 'Not Found',
+                        icon: 'pi pi-exclamation-circle'
                     },
                     {
                         separator: true,
                     },
                     {
-                        label: 'UI Kit',
-                        icon: 'pi pi-pencil'
+                        label: 'Empty',
+                        icon: 'pi pi-circle-off'
                     },
                 ],
             },
