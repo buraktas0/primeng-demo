@@ -28,8 +28,24 @@ export class PanelHeaderComponent implements OnInit {
     ngOnInit() {
         this.items = [
             {
-                label: 'Home',
-                icon: 'pi pi-home',
+                label: 'Dashboard',
+                icon: 'pi pi-objects-column',
+                command: () => { this.navigate('/panel'); }
+            },
+            {
+                label: 'Inputs',
+                icon: 'pi pi-file',
+                items: [
+                    {
+                        label: 'Form Layout',
+                        icon: 'pi pi-table',
+                        command: () => { this.navigate('/panel/form-layouts'); }
+                    },
+                    {
+                        label: 'Input',
+                        icon: 'pi pi-table'
+                    }
+                ]
             },
             {
                 label: 'Projects',
@@ -57,5 +73,9 @@ export class PanelHeaderComponent implements OnInit {
 
     toggleSidebar() {
         this.layoutService.toggleSidebar();
+    }
+
+    navigate(route: string) {
+        this.router.navigate([route]);
     }
 }

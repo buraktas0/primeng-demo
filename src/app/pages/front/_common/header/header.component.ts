@@ -8,6 +8,7 @@ import { Router, RouterModule } from "@angular/router";
 @Component({
     selector: 'app-front-header',
     templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
     standalone: true,
     imports: [RouterModule, MegaMenu, ButtonModule, CommonModule]
 })
