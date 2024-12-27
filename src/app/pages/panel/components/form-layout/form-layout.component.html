@@ -1,0 +1,71 @@
+<div class="grid">
+    <div class="col-6">
+        <p-card header="Ifta Label">
+            <div class="grid">
+                <div class="col-6">
+                    <p-ifta-label>
+                        <label htmlFor="name1">Name</label>
+                        <input pInputText id="name1" type="text" />
+                    </p-ifta-label>
+                </div>
+                <div class="col-6">
+                    <p-ifta-label>
+                        <label htmlFor="email1">Email</label>
+                        <input pInputText id="email1" type="text" />
+                    </p-ifta-label>
+                </div>
+                <div class="col-12">
+                    <p-ifta-label>
+                        <label htmlFor="desc1">Description</label>
+                        <input pInputText id="desc1" type="text" />
+                    </p-ifta-label>
+                </div>
+                <p-inputgroup class="col-12">
+                    <p-inputgroup-addon>
+                        <i class="pi pi-shopping-cart"></i>
+                    </p-inputgroup-addon>
+                    <p-iftalabel>
+                        <p-inputnumber [(ngModel)]="value" inputId="price" mode="currency" currency="TRY"
+                            locale="tr-TR" />
+                        <label for="price">Price</label>
+                    </p-iftalabel>
+                </p-inputgroup>
+            </div>
+        </p-card>
+    </div>
+
+    <div class="col-6">
+        <p-card header="Float Label">
+            <div class="grid">
+                <div class="col-6">
+                    <p-float-label variant="in">
+                        <label htmlFor="name1">Name</label>
+                        <input pInputText id="name1" type="text" />
+                    </p-float-label>
+                </div>
+                <div class="col-6">
+                    <p-float-label variant="in">
+                        <label htmlFor="email1">Email</label>
+                        <input pInputText id="email1" type="text" />
+                    </p-float-label>
+                </div>
+                <div class="col-12">
+                    <p-float-label variant="in">
+                        <label htmlFor="desc1">Description</label>
+                        <input pInputText id="desc1" type="text" />
+                    </p-float-label>
+                </div>
+                <p-inputgroup class="col-12">
+                    <p-inputgroup-addon>
+                        <i class="pi pi-shopping-cart"></i>
+                    </p-inputgroup-addon>
+                    <p-float-label variant="in">
+                        <p-inputnumber inputId="price" mode="currency" currency="TRY" locale="tr-TR" />
+                        <label for="price">Price</label>
+                    </p-float-label>
+                    <p-inputgroup-addon>TRY</p-inputgroup-addon>
+                </p-inputgroup>
+            </div>
+        </p-card>
+    </div>
+</div>

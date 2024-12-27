@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { Router, RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { Card } from 'primeng/card';
-import { FluidModule } from 'primeng/fluid';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { IftaLabelModule } from 'primeng/iftalabel';
@@ -24,16 +23,15 @@ import { InputTextModule } from "primeng/inputtext";
 
 
 @Component({
-    selector: 'app-form-layouts',
-    templateUrl: './form-layouts.component.html',
-    styleUrl: './form-layouts.component.scss',
+    selector: 'app-form-layout',
+    templateUrl: './form-layout.component.html',
+    styleUrl: './form-layout.component.scss',
     standalone: true,
     imports: [
         RouterModule,
         CommonModule,
         FormsModule,
         Card,
-        FluidModule,
         InputGroupModule,
         InputGroupAddonModule,
         IftaLabelModule,
@@ -50,7 +48,7 @@ import { InputTextModule } from "primeng/inputtext";
         TextareaModule,
         InputTextModule]
 })
-export class FormLayoutsComponent implements OnInit {
+export class FormLayoutComponent implements OnInit {
 
     constructor(private router: Router) { }
 

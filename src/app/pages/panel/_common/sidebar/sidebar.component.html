@@ -1,23 +1,21 @@
-<div [ngClass]="{'sidebar-expanded': !isCollapsed, 'sidebar-collapsed': isCollapsed}" class="sidebar">
-    <p-menu [model]="items" class="justify-center menu"
-        [style]="{'width': isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'}">
-        <ng-template #start>
-            <span></span>
-        </ng-template>
-        <ng-template #submenuheader let-item>
-            <span class="text-primary font-bold" *ngIf="!isCollapsed ? true : item.icon ? true : false">
-                {{ item.label }}</span>
-        </ng-template>
-        <ng-template #item let-item>
-            <a class="flex items-center p-menu-item-link">
-                <span [class]="item.icon"></span>
-                <span *ngIf="!isCollapsed" class="ml-2">{{ item.label }}</span>
-            </a>
-        </ng-template>
-        <ng-template #end>
-            <div *ngIf="!isCollapsed" class="flex justify-content-center">
-                <span>sidebar footer</span>
-            </div>
-        </ng-template>
-    </p-menu>
-</div>
+<p-menu [model]="items" class="justify-center sidebar"
+    [ngClass]="{'sidebar-expanded': !isCollapsed, 'sidebar-collapsed': isCollapsed}">
+    <ng-template #start>
+        <span></span>
+    </ng-template>
+    <ng-template #submenuheader let-item>
+        <span class="text-primary font-bold text" *ngIf="!isCollapsed ? true : item.icon ? true : false">
+            {{ item.label }}</span>
+    </ng-template>
+    <ng-template #item let-item>
+        <a class="flex items-center p-menu-item-link">
+            <span [class]="item.icon"></span>
+            <span *ngIf="!isCollapsed" class="ml-2 text">{{ item.label }}</span>
+        </a>
+    </ng-template>
+    <ng-template #end>
+        <div *ngIf="!isCollapsed" class="flex justify-content-center text">
+            <span>sidebar footer</span>
+        </div>
+    </ng-template>
+</p-menu>

@@ -1,18 +1,27 @@
 .sidebar {
-    display: flex;
-    flex-direction: column;
     transition: all 0.3s ease-in-out;
-    overflow: hidden;
     background: #f4f4f4;
-    height: 100vh;
+    width: auto;
+}
+
+::ng-deep .p-menu {
+    min-width: 0 !important;
 }
 
 .sidebar-expanded {
-    width: 200px;
+    // width: auto;
+
+    ::ng-deep .p-menu {
+        min-width: 12.5rem !important;
+    }
 }
 
 .sidebar-collapsed {
-    width: 45px;
+    // width: auto;
+
+    // ::ng-deep .p-menu .text {
+    //     display: none;
+    // }
 }
 
 .sidebar .pi {

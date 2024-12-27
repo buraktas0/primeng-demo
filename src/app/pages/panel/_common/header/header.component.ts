@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Menubar } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
@@ -16,14 +16,15 @@ import { LayoutService } from "../../layout.service";
     imports: [RouterModule, CommonModule, Menubar, ButtonModule, InputTextModule, AvatarModule]
 })
 export class PanelHeaderComponent implements OnInit {
+    @ViewChild('menubar') menubar: any;
+    isSideMenuCollapsed = false;
     items: MenuItem[] | undefined;
 
     constructor(
         private router: Router,
-        private layoutService: LayoutService,
-    ) {
+        private layoutService: LayoutService
+    ) { }
 
-    }
 
     ngOnInit() {
         this.items = [
@@ -39,7 +40,7 @@ export class PanelHeaderComponent implements OnInit {
                     {
                         label: 'Form Layout',
                         icon: 'pi pi-clone',
-                        command: () => { this.navigate('/panel/form-layouts'); }
+                        command: () => { this.navigate('/panel/form-layout'); }
                     },
                     {
                         label: 'Input',
@@ -51,7 +52,8 @@ export class PanelHeaderComponent implements OnInit {
                     },
                     {
                         label: 'Table',
-                        icon: 'pi pi-table'
+                        icon: 'pi pi-table',
+                        command: () => { this.navigate('/panel/table'); }
                     },
                     {
                         label: 'Chart',
