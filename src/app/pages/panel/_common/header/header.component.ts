@@ -61,8 +61,9 @@ export class PanelHeaderComponent implements OnInit {
                         command: () => { this.navigate('/panel/chart'); }
                     },
                     {
-                        label: 'Placeholder',
-                        icon: 'pi pi-circle'
+                        label: 'Skeleton',
+                        icon: 'pi pi-circle',
+                        command: () => { this.navigate('/panel/skeleton'); }
                     },
                     {
                         label: 'Panel',
