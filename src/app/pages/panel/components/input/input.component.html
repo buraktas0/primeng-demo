@@ -1,0 +1,60 @@
+<div class="grid">
+    <div class="col-6">
+        <p-card header="Datepicker">
+            <div class="grid">
+                <div class="col-6">
+                    <p-datepicker fluid [(ngModel)]="selectedDate" [showIcon]="true" inputId="buttondisplay" />
+                </div>
+                <div class="col-6">
+                    <p-datepicker fluid [(ngModel)]="selectedDate" [showIcon]="true" [showButtonBar]="true"
+                        inputId="buttondisplay" />
+                </div>
+                <div class="col-8">
+                    <p-datepicker [(ngModel)]="selectedDate" [inline]="true" />
+                </div>
+                <div class="col-6">
+                    <p-float-label variant="in">
+                        <p-datepicker [(ngModel)]="selectedDate" inputId="in_label" showIcon showButtonBar
+                            iconDisplay="input" />
+                        <label for="in_label">Select Date</label>
+                    </p-float-label>
+                </div>
+                <div class="col-6">
+                    <p-float-label variant="in">
+                        <p-datepicker [(ngModel)]="selectedDate" inputId="in_label" showIcon showButtonBar
+                            iconDisplay="input" class="ng-invalid ng-dirty" />
+                        <label for="in_label">Select Date (Invalid)</label>
+                    </p-float-label>
+                </div>
+                <div class="col-6">
+                    <p-float-label variant="in">
+                        <p-datepicker [(ngModel)]="selectedDate" inputId="in_label" showIcon showButtonBar
+                            iconDisplay="input" variant="filled" />
+                        <label for="in_label">Select Date (Filled)</label>
+                    </p-float-label>
+                </div>
+                <div class="col-6">
+                    <p-ifta-label>
+                        <p-datepicker [(ngModel)]="selectedDate" inputId="in_label2" showIcon showButtonBar
+                            iconDisplay="input" />
+                        <label for="in_label2">Select Date</label>
+                    </p-ifta-label>
+                </div>
+            </div>
+        </p-card>
+    </div>
+
+    <div class="col-6">
+        <p-card>
+            <p-fileupload name="demo[]" (onSend)="onUpload()" (onSelect)="onSelect($event)" [multiple]="true"
+                maxFileSize="1000000" mode="advanced">
+                <ng-template #content>
+                    Drag and drop files here to upload.
+                    <ul *ngIf="files.length">
+                        <li *ngFor="let file of files">{{ file.name }} - {{ file.size }} bytes</li>
+                    </ul>
+                </ng-template>
+            </p-fileupload>
+        </p-card>
+    </div>
+</div>

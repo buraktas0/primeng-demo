@@ -44,7 +44,8 @@ export class PanelHeaderComponent implements OnInit {
                     },
                     {
                         label: 'Input',
-                        icon: 'pi pi-check-square'
+                        icon: 'pi pi-check-square',
+                        command: () => { this.navigate('/panel/input'); }
                     },
                     {
                         label: 'Button',
