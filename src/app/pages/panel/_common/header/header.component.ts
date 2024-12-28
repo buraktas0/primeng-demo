@@ -57,7 +57,8 @@ export class PanelHeaderComponent implements OnInit {
                     },
                     {
                         label: 'Chart',
-                        icon: 'pi pi-chart-bar'
+                        icon: 'pi pi-chart-bar',
+                        command: () => { this.navigate('/panel/chart'); }
                     },
                     {
                         label: 'Placeholder',

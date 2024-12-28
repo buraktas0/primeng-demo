@@ -6,6 +6,7 @@ import { PanelLayoutComponent } from './pages/panel/panel-layout.component';
 import { DashboardComponent } from './pages/panel/dashboard/dashboard.component';
 import { FormLayoutComponent } from './pages/panel/components/form-layout/form-layout.component';
 import { TableDemoComponent } from './pages/panel/components/table/table.component';
+import { ChartDemoComponent } from './pages/panel/components/chart/chart.component';
 
 export const routes: Routes = [
     {
@@ -28,6 +29,7 @@ export const routes: Routes = [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'form-layout', component: FormLayoutComponent },
             { path: 'table', component: TableDemoComponent },
+            { path: 'chart', component: ChartDemoComponent },
         ]
     },
 ];
