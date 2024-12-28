@@ -5,27 +5,23 @@ import { FormsModule } from "@angular/forms";
 import { Card } from 'primeng/card';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
-import { Dialog } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
 import { SliderModule } from 'primeng/slider';
-import { ConfirmDialog } from 'primeng/confirmdialog';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
-import { FileUpload } from 'primeng/fileupload';
 import { SelectModule } from 'primeng/select';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { Tag } from 'primeng/tag';
-import { RadioButton } from 'primeng/radiobutton';
-import { InputNumber } from 'primeng/inputnumber';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { Table } from 'primeng/table';
 import { CustomerService } from "./customer.service";
 import { Customer, Representative } from "./customer.model";
+
 
 interface Column {
     field: string;
@@ -48,7 +44,21 @@ interface ExportColumn {
         CommonModule,
         FormsModule,
         Card,
-        TableModule, Dialog, ButtonModule, MultiSelectModule, ProgressBarModule, SliderModule, SelectModule, ToastModule, ToolbarModule, ConfirmDialog, InputTextModule, TextareaModule, FileUpload, DropdownModule, Tag, RadioButton, InputTextModule, InputNumber, IconFieldModule, InputIconModule
+        TableModule,
+        ButtonModule,
+        MultiSelectModule,
+        ProgressBarModule,
+        SliderModule,
+        SelectModule,
+        ToastModule,
+        ToolbarModule,
+        InputTextModule,
+        TextareaModule,
+        DropdownModule,
+        Tag,
+        InputTextModule,
+        IconFieldModule,
+        InputIconModule
     ],
     providers: [MessageService, ConfirmationService, CustomerService]
 })
