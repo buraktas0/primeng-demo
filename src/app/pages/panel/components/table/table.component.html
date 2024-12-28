@@ -1,10 +1,11 @@
 <div class="grid">
     <div class="col-12">
         <p-card header="Customer Table">
-            <p-table #dt1 [value]="customers" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
-                [resizableColumns]="true" columnResizeMode="expand" styleClass="p-datatable-gridlines" stripedRows
-                [loading]="loading" [paginator]="true" stateStorage="session" stateKey="demoTableState"
-                [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']">
+            <p-table #dt1 [value]="customers" [columns]="cols" [(selection)]="selectedCustomers" dataKey="id"
+                [rows]="10" [rowsPerPageOptions]="[10, 25, 50]" [resizableColumns]="true" [autoLayout]="true"
+                columnResizeMode="expand" showGridlines stripedRows selectionMode="single" [loading]="loading"
+                [paginator]="true" [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+                stateStorage="session" stateKey="demoTableState" [exportHeader]="'customExportHeader'">
                 <ng-template #caption>
                     <div class="flex">
                         <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" />
@@ -16,24 +17,31 @@
                                 (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
                                 placeholder="Search keyword" />
                         </p-iconfield>
+                        <p-button class="ml-2" icon="pi pi-external-link" label="Export" (click)="dt1.exportCSV()" />
                     </div>
                 </ng-template>
                 <ng-template #header>
                     <tr>
-                        <th pResizableColumn>
+                        <th class="selection-cb">
+                            <p-tableHeaderCheckbox />
+                        </th>
+                        <th pResizableColumn pSortableColumn="name">
                             <div>
+                                <p-sortIcon field="name" />
                                 Name
                                 <p-columnFilter type="text" field="name" display="menu" />
                             </div>
                         </th>
-                        <th pResizableColumn>
+                        <th pResizableColumn pSortableColumn="country.name">
                             <div>
+                                <p-sortIcon field="country.name" />
                                 Country
                                 <p-columnFilter type="text" field="country.name" display="menu" />
                             </div>
                         </th>
-                        <th pResizableColumn>
+                        <th pResizableColumn pSortableColumn="representative">
                             <div>
+                                <p-sortIcon field="representative" />
                                 Agent
                                 <p-columnFilter field="representative" matchMode="in" display="menu"
                                     [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
@@ -57,20 +65,23 @@
                                 </p-columnFilter>
                             </div>
                         </th>
-                        <th pResizableColumn>
+                        <th pResizableColumn pSortableColumn="date">
                             <div>
+                                <p-sortIcon field="date" />
                                 Date
                                 <p-columnFilter type="date" field="date" display="menu" />
                             </div>
                         </th>
-                        <th pResizableColumn>
+                        <th pResizableColumn pSortableColumn="balance">
                             <div>
+                                <p-sortIcon field="balance" />
                                 Balance
                                 <p-columnFilter type="numeric" field="balance" display="menu" currency="USD" />
                             </div>
                         </th>
-                        <th>
+                        <th pResizableColumn pSortableColumn="status">
                             <div>
+                                <p-sortIcon field="status" />
                                 Status
                                 <p-columnFilter field="status" matchMode="equals" display="menu">
                                     <ng-template #filter let-value let-filter="filterCallback">
@@ -84,8 +95,9 @@
                                 </p-columnFilter>
                             </div>
                         </th>
-                        <th pResizableColumn>
+                        <th pResizableColumn pSortableColumn="activity">
                             <div>
+                                <p-sortIcon field="activity" />
                                 Activity
                                 <p-columnFilter field="activity" matchMode="between" display="menu"
                                     [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
@@ -100,8 +112,9 @@
                                 </p-columnFilter>
                             </div>
                         </th>
-                        <th>
+                        <th pResizableColumn pSortableColumn="verified">
                             <div>
+                                <p-sortIcon field="verified" />
                                 Verified
                                 <p-columnFilter type="boolean" field="verified" display="menu" />
                             </div>
@@ -110,6 +123,9 @@
                 </ng-template>
                 <ng-template #body let-customer>
                     <tr>
+                        <td>
+                            <p-tableCheckbox [value]="customer" />
+                        </td>
                         <td>
                             {{ customer.name }}
                         </td>

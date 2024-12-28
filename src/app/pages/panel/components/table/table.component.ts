@@ -55,6 +55,7 @@ interface ExportColumn {
 export class TableDemoComponent implements OnInit {
 
     customers!: Customer[];
+    selectedCustomers!: Customer[];
 
     representatives!: Representative[];
 
@@ -65,6 +66,11 @@ export class TableDemoComponent implements OnInit {
     activityValues: number[] = [0, 100];
 
     searchValue: string | undefined;
+
+    cols!: Column[];
+
+    exportColumns!: ExportColumn[];
+
 
     constructor(private router: Router,
         private messageService: MessageService,
@@ -103,6 +109,21 @@ export class TableDemoComponent implements OnInit {
             { label: 'Renewal', value: 'renewal' },
             { label: 'Proposal', value: 'proposal' }
         ];
+
+        this.cols = [
+            // { field: 'code', header: 'Code', customExportHeader: 'Product Code' },
+            { field: 'name', header: 'Name' },
+            { field: 'country.name', header: 'Country' },
+            { field: 'company', header: 'Company' },
+            { field: 'representative.name', header: 'Agent' },
+            { field: 'date', header: 'Date' },
+            { field: 'balance', header: 'Balance' },
+            { field: 'status', header: 'status' },
+            { field: 'activity', header: 'Activity' },
+            { field: 'verified', header: 'Verified' }
+        ];
+
+        this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
     }
 
     clear(table: Table) {
